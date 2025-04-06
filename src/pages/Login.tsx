@@ -15,39 +15,34 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-    
+  
     // Log form submission data
     console.log('Login form submitted with:', {
       email,
-      password: '********' // Don't log actual password
+      password: '[REDACTED]', // Avoid logging sensitive data
     });
-
+  
     try {
-      const response = await fetch('https://arunachal.upstateagro.com/api/auth/login', {
+      // If using Vite proxy, use relative URL; otherwise, keep full URL
+      const apiUrl = '/api/auth/login'; // Adjust to 'https://arunachal.upstateagro.com/api/auth/login' if no proxy
+      console.log('Sending request to:', apiUrl);
+  
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
-      // Log API response
-      console.log('Login API Response:', {
-        success: data.success,
-        status: response.status,
-        userData: data.user
-      });
-
-      console.log(response)
-      
-
+      console.log('API response:', data);
+  
       if (!response.ok) {
-        console.log(response)
-        throw new Error(data.error || 'Login failed');
+        console.log('Response not OK:', { status: response.status, data });
+        throw new Error(data.error || `Login failed with status: ${response.status}`);
       }
-
+  
       // Log user data before storing
       console.log('Storing user data:', {
         id: data.user.id,
@@ -57,24 +52,27 @@ const Login = () => {
         role: data.user.role,
         permissions: data.user.permissions,
         status: data.user.status,
-        phone: data.user.phone
+        phone: data.user.phone,
       });
-
+  
       // Store user data in localStorage
-      localStorage.setItem('userData', JSON.stringify({
-        id: data.user.id,
-        email: data.user.email,
-        firstName: data.user.firstName,
-        lastName: data.user.lastName,
-        role: data.user.role,
-        permissions: data.user.permissions,
-        status: data.user.status,
-        phone: data.user.phone
-      }));
-
+      localStorage.setItem(
+        'userData',
+        JSON.stringify({
+          id: data.user.id,
+          email: data.user.email,
+          firstName: data.user.firstName,
+          lastName: data.user.lastName,
+          role: data.user.role,
+          permissions: data.user.permissions,
+          status: data.user.status,
+          phone: data.user.phone,
+        })
+      );
+  
       // Log navigation destination
       console.log('Redirecting user to:', data.user.role === 'Artist' ? '/dashboard' : '/profile');
-
+  
       // Redirect based on role
       if (data.user.role === 'Artist') {
         navigate('/dashboard');
@@ -82,13 +80,13 @@ const Login = () => {
         navigate('/profile');
       }
     } catch (err) {
-      // Log error details
       console.error('Login error:', {
-        error: err,
-        message: (err as Error).message,
-        email: email // Log email for debugging failed attempts
+        message: err.message,
+        name: err.name,
+        stack: err.stack,
+        email, // Log email for debugging failed attempts
       });
-      setError((err as Error).message || 'An error occurred during login');
+      setError(err.message || 'An error occurred during login');
     } finally {
       setLoading(false);
     }
