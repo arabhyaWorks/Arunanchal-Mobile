@@ -93,10 +93,10 @@ const Home = ({ data }: HomeProps) => {
                 });
                 setIsPlayerMinimized(false);
               }}
-              onPlay={(song) => {
-                setCurrentSong(song);
-                setIsPlayerMinimized(false);
-              }}
+              // onPlay={(song) => {
+              //   setCurrentSong(song);
+              //   setIsPlayerMinimized(false);
+              // }}
             />
           ))}
         </div>
