@@ -80,6 +80,7 @@ const Login = () => {
         navigate('/profile');
       }
     } catch (err) {
+      console.log(err)
       console.error('Login error:', {
         message: err.message,
         name: err.name,
