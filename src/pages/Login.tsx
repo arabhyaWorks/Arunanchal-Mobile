@@ -24,7 +24,7 @@ const Login = () => {
   
     try {
       // If using Vite proxy, use relative URL; otherwise, keep full URL
-      const apiUrl = '/api/auth/login'; // Adjust to 'https://arunachal.upstateagro.com/api/auth/login' if no proxy
+      const apiUrl = 'https://arabhaya2.bidabhadohi.com/api/auth/login'; // Adjust to 'https://arunachal.upstateagro.com/api/auth/login' if no proxy
       console.log('Sending request to:', apiUrl);
   
       const response = await fetch(apiUrl, {
