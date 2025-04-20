@@ -154,8 +154,9 @@ function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        <Routes>
-          <Route element={<Layout />}>
+        {/* {console.log('App render - videos data:', data?.media?.videos)} */}
+        <Layout>
+          <Routes>
             <Route path="/" element={<Home data={data} />} />
             <Route path="/tribes" element={<Tribes tribes={data.tribes} />} />
             <Route path="/folktales" element={<FolkTales />} />
@@ -175,9 +176,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/upload" element={<UploadContent />} />
             <Route path="/notifications" element={<Notifications />} />
-          </Route>
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        </Routes>
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          </Routes>
+        </Layout>
       </Router>
     </LanguageProvider>
   );
