@@ -22,6 +22,7 @@ import FolkMusicUpload from './pages/FolkMusicUpload';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Festivals from './pages/Festivals';
 import ScrollToTop from './components/ScrollToTop';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 interface ApiResponse {
   data: {
@@ -153,9 +154,8 @@ function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        {/* {console.log('App render - videos data:', data?.media?.videos)} */}
-        <Layout>
-          <Routes>
+        <Routes>
+          <Route element={<Layout />}>
             <Route path="/" element={<Home data={data} />} />
             <Route path="/tribes" element={<Tribes tribes={data.tribes} />} />
             <Route path="/folktales" element={<FolkTales />} />
@@ -175,8 +175,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/upload" element={<UploadContent />} />
             <Route path="/notifications" element={<Notifications />} />
-          </Routes>
-        </Layout>
+          </Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        </Routes>
       </Router>
     </LanguageProvider>
   );
