@@ -54,24 +54,24 @@ const Dashboard = () => {
       bgColor: 'bg-[#4285F4]',
       onClick: () => navigate('/upload')
     },
-    { 
-      icon: ClipboardCheck, 
-      label: 'Content Status',
-      bgColor: 'bg-[#F4B400]',
-      onClick: () => navigate('/content-status')
-    },
+    // { 
+    //   icon: ClipboardCheck, 
+    //   label: 'Content Status',
+    //   bgColor: 'bg-[#F4B400]',
+    //   onClick: () => navigate('/content-status')
+    // },
     { 
       icon: Bell, 
       label: 'Notifications',
       bgColor: 'bg-[#A142F4]',
       onClick: () => navigate('/notifications')
     },
-    { 
-      icon: FileText, 
-      label: 'My Content',
-      bgColor: 'bg-[#455A64]',
-      onClick: () => navigate('/my-content')
-    }
+    // { 
+    //   icon: FileText, 
+    //   label: 'My Content',
+    //   bgColor: 'bg-[#455A64]',
+    //   onClick: () => navigate('/my-content')
+    // }
   ];
 
   // Get icon for category

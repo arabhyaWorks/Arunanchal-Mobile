@@ -17,12 +17,14 @@ import LikedContent from './pages/LikedContent';
 import Login from './pages/Login';
 import ContentStatus from './pages/ContentStatus';
 import Dashboard from './pages/Dashboard';
-import UploadContent from './pages/UploadContent';
+import UploadContent from './pages/upload/UploadContent';
 import FolkMusicUpload from './pages/FolkMusicUpload';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Festivals from './pages/Festivals';
 import ScrollToTop from './components/ScrollToTop';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import UploadItemCreation from './pages/upload/uploadItemCreation';
+import ContentApproval from './pages/upload/ContentApproval';
 
 interface ApiResponse {
   data: {
@@ -175,6 +177,9 @@ function App() {
             <Route path="/my-content" element={<ContentStatus />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/upload" element={<UploadContent />} />
+            <Route path="/upload/:categoryName" element={<UploadItemCreation />} />
+            <Route path="/content-status" element={<ContentApproval />} />
+
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
