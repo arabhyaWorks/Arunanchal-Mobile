@@ -89,7 +89,7 @@ const FolkTales = () => {
     }
 
     try {
-      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/likes', {
+      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/likes', {
         method: isLiked ? 'DELETE' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ category_item_id: itemId, user_id: user.id }),
@@ -125,7 +125,7 @@ const FolkTales = () => {
     const shareUrl = `https://indigenous.arunachal.gov.in/folktales?taleName=${encodeURIComponent(tale.name)}&item_id=${itemId}`;
     const shareTitle = `${tale.name} - Indigenous Folk Tales of Arunachal Pradesh`;
     const shareDescription = tale.description || `Explore the traditional folk tale "${tale.name}" from the indigenous tribes of Arunachal Pradesh.`;
-    const thumbnail = getAttributeValue('cat-FolkTales-ThumbnailImage') || 'https://arunachal.upstateagro.com/logo_ap.png';
+    const thumbnail = getAttributeValue('cat-FolkTales-ThumbnailImage') || 'https://arabhaya2.bidabhadohi.com/logo_ap.png';
 
     switch (platform.toLowerCase()) {
       case 'whatsapp':
@@ -167,7 +167,7 @@ const FolkTales = () => {
     if (!commentText.trim()) return;
 
     try {
-      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/comments', {
+      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -207,7 +207,7 @@ const FolkTales = () => {
     if (!reportReason.trim()) return;
 
     try {
-      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/reports', {
+      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/reports', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -269,7 +269,7 @@ const FolkTales = () => {
     );
   }
 
-  const heroImage = getAttributeValue('cat-FolkTales-ThumbnailImage') || 'https://arunachal.upstateagro.com/logo_ap.png';
+  const heroImage = getAttributeValue('cat-FolkTales-ThumbnailImage') || 'https://arabhaya2.bidabhadohi.com/logo_ap.png';
   const story = getAttributeValue('tale.description') || 'No story content available.';
   const moral = getAttributeValue('cat-FolkTales-Moral') || 'No moral specified.';
   const characters = getAttributeValue('cat-FolkTales-CharactersInvolved') || [];

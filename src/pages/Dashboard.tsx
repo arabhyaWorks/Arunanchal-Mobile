@@ -117,7 +117,7 @@ const Dashboard = () => {
     const fetchStats = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`https://arunachal.upstateagro.com/api/stats/categoryItems?user_id=${user.id}`);
+        const response = await fetch(`https://arabhaya2.bidabhadohi.com/api/stats/categoryItems?user_id=${user.id}`);
         const data = await response.json();
         if (data.success) {
           setStats({

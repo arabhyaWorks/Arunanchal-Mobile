@@ -39,7 +39,7 @@ const Music = () => {
 
   const fetchSongs = async () => {
     try {
-      const response = await fetch('https://arunachal.upstateagro.com/api/category/items?category_id=3');
+      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items?category_id=3');
       const data = await response.json();
       if (data?.data) {
         const transformedSongs = data.data.map((item: any) => ({
@@ -172,7 +172,7 @@ const Music = () => {
             <div key={song.id} className="flex-none w-[160px] group relative">
               <div className="relative aspect-square rounded-lg overflow-hidden shadow-md">
                 <img
-                  src={song.thumbnail_path || 'https://arunachal.upstateagro.com/logo_ap.png'}
+                  src={song.thumbnail_path || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
                   alt={song.title}
                   className="w-full h-full object-cover"
                 />

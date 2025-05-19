@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from '../components/ImageModal';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import { 
   ChevronLeft, 
   MoreVertical,
@@ -74,7 +75,7 @@ const TribeDetail: React.FC<TribeDetailProps> = () => {
   useEffect(() => {
     const fetchTribeDetails = async () => {
       try {
-        const response = await fetch(`https://arunachal.upstateagro.com/api/tribe?tribeName=${tribeName}`);
+        const response = await fetch(`https://arabhaya2.bidabhadohi.com/api/tribe?tribeName=${tribeName}`);
         const data = await response.json();
         if (data.success && data.data.length > 0) {
           setTribe(data.data[0]);
@@ -101,7 +102,7 @@ const TribeDetail: React.FC<TribeDetailProps> = () => {
 
     setFollowLoading(true);
     try {
-      const response = await fetch('https://arunachal.upstateagro.com/api/tribe/follow', {
+      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/tribe/follow', {
         method: isFollowing ? 'DELETE' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -495,7 +496,7 @@ const TribeDetail: React.FC<TribeDetailProps> = () => {
                 >
                   <div className="relative aspect-square rounded-lg overflow-hidden shadow-md">
                     <img
-                      src={music.attributes?.['cat-FolkMusic-FolkMusic']?.attribute_value?.value?.[0]?.thumbnail_path || 'https://arunachal.upstateagro.com/logo_ap.png'}
+                      src={music.attributes?.['cat-FolkMusic-FolkMusic']?.attribute_value?.value?.[0]?.thumbnail_path || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
                       alt={music.name}
                       className="w-full h-full object-cover"
                     />
@@ -542,7 +543,7 @@ const TribeDetail: React.FC<TribeDetailProps> = () => {
                 >
                   <div className="relative h-40 overflow-hidden">
                     <img
-                      src={tale.attributes?.['cat-FolkTales-ThumbnailImage']?.attribute_value?.value || 'https://arunachal.upstateagro.com/logo_ap.png'}
+                      src={tale.attributes?.['cat-FolkTales-ThumbnailImage']?.attribute_value?.value || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
                       alt={tale.name}
                       className="w-full h-full object-cover"
                     />
@@ -579,7 +580,7 @@ const TribeDetail: React.FC<TribeDetailProps> = () => {
                 <div key={index} className="flex-none w-[280px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all cursor-pointer">
                   <div className="relative h-40 overflow-hidden">
                     <img
-                      src={costume.attributes?.['cat-TraditionalCostumes&Dresses-ThumbnailImage']?.attribute_value?.value || 'https://arunachal.upstateagro.com/logo_ap.png'}
+                      src={costume.attributes?.['cat-TraditionalCostumes&Dresses-ThumbnailImage']?.attribute_value?.value || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
                       alt={costume.name}
                       className="w-full h-full object-cover"
                     />
@@ -620,7 +621,7 @@ const TribeDetail: React.FC<TribeDetailProps> = () => {
                 >
                   <div className="relative h-40 overflow-hidden">
                     <img
-                      src={cuisine.attributes?.['cat-Cuisine/Delicacies-Image']?.attribute_value?.value || 'https://arunachal.upstateagro.com/logo_ap.png'}
+                      src={cuisine.attributes?.['cat-Cuisine/Delicacies-Image']?.attribute_value?.value || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
                       alt={cuisine.name}
                       className="w-full h-full object-cover"
                     />

@@ -22,7 +22,7 @@ const Festivals = () => {
   useEffect(() => {
     const fetchFestivals = async () => {
       try {
-        const response = await fetch('https://arunachal.upstateagro.com/api/category/items?category_id=1');
+        const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items?category_id=1');
         const data = await response.json();
         if (data?.data) {
           const transformedFestivals = data.data.map((festival: any) => {
@@ -30,31 +30,31 @@ const Festivals = () => {
               (attr: any) => attr.attribute_name === 'cat-Festivals-DateOfCelebration'
             )?.attribute_value?.value || '';
             
-            // Parse date string like "9th of January" to a Date object
-            const dateParts = dateStr.match(/(\d+)(?:st|nd|rd|th) of (\w+)/);
+            // Parse date string like "DD-MM" to a Date object
+            const dateParts = dateStr.match(/(\d{2})-(\d{2})/);
             const date = dateParts 
-              ? new Date(`${dateParts[2]} ${dateParts[1]}, ${new Date().getFullYear()}`)
+              ? new Date(`${currentDate.getFullYear()}-${dateParts[2]}-${dateParts[1]}`)
               : new Date();
 
             return {
-            id: festival.id,
-            name: festival.name,
-            description: festival.description,
-            tribe: festival.attributes.find(
-              (attr: any) => attr.attribute_name === 'cat-Festivals-Tribe'
-            )?.attribute_value?.value?.[0]?.name || 'Unknown Tribe',
-            date: dateStr || 'Unknown Date',
-            month: date.toLocaleString('default', { month: 'long' }),
-            duration: festival.attributes.find(
-              (attr: any) => attr.attribute_name === 'cat-Festivals-Duration'
-            )?.attribute_value?.value || 'Duration not available',
-            image: festival.attributes.find(
-              (attr: any) => attr.attribute_name === 'cat-Festivals-ImagesOfTheFestivals'
-            )?.attribute_value?.value || null,
-            district: festival.attributes.find(
-              (attr: any) => attr.attribute_name === 'cat-Festivals-Regions'
-            )?.attribute_value?.value || 'Unknown Location',
-          };
+              id: festival.id,
+              name: festival.name,
+              description: festival.description,
+              tribe: festival.attributes.find(
+                (attr: any) => attr.attribute_name === 'cat-Festivals-Tribe'
+              )?.attribute_value?.value?.[0]?.name || 'Unknown Tribe',
+              date: dateStr ? `${dateParts[1]}-${dateParts[2]}` : 'Unknown Date',
+              month: date.toLocaleString('default', { month: 'long' }),
+              duration: festival.attributes.find(
+                (attr: any) => attr.attribute_name === 'cat-Festivals-Duration'
+              )?.attribute_value?.value || 'Duration not available',
+              image: festival.attributes.find(
+                (attr: any) => attr.attribute_name === 'cat-Festivals-ImagesOfTheFestivals'
+              )?.attribute_value?.value || null,
+              district: festival.attributes.find(
+                (attr: any) => attr.attribute_name === 'cat-Festivals-Regions'
+              )?.attribute_value?.value || 'Unknown Location',
+            };
           });
           setFestivals(transformedFestivals);
         }
@@ -92,11 +92,11 @@ const Festivals = () => {
 
   const getDayFestivals = (day: number) => {
     return festivals.filter(festival => {
-      // Parse date string like "9th of January"
-      const dateParts = festival.date.match(/(\d+)(?:st|nd|rd|th) of (\w+)/);
+      // Parse date string like "DD-MM"
+      const dateParts = festival.date.match(/(\d{2})-(\d{2})/);
       if (!dateParts) return false;
       
-      const festivalDate = new Date(`${dateParts[2]} ${dateParts[1]}, ${currentDate.getFullYear()}`);
+      const festivalDate = new Date(`${currentDate.getFullYear()}-${dateParts[2]}-${dateParts[1]}`);
       return (
         festivalDate.getDate() === day &&
         festivalDate.getMonth() === currentDate.getMonth() &&
@@ -184,36 +184,36 @@ const Festivals = () => {
               ))}
             </div>          
             <div className="grid grid-cols-7 gap-1">
-            {Array.from({ length: firstDayOfMonth }).map((_, index) => (
-              <div key={`empty-${index}`} className="aspect-square" />
-            ))}
-            {Array.from({ length: daysInMonth }).map((_, index) => {
-              const day = index + 1;
-              const dayFestivals = getDayFestivals(day);
-              const hasFestival = dayFestivals.length > 0;
+              {Array.from({ length: firstDayOfMonth }).map((_, index) => (
+                <div key={`empty-${index}`} className="aspect-square" />
+              ))}
+              {Array.from({ length: daysInMonth }).map((_, index) => {
+                const day = index + 1;
+                const dayFestivals = getDayFestivals(day);
+                const hasFestival = dayFestivals.length > 0;
 
-              return (
-                <div
-                  key={day}
-                  className="aspect-square p-1 relative"
-                >
-                  <div className={`
-                    w-10 h-10 flex items-center justify-center rounded-full text-sm
-                    ${hasFestival 
-                      ? 'bg-yellow-400 text-[#165263] font-medium shadow-md' 
-                      : 'text-[#165263] hover:bg-gray-100'}
-                    transition-all cursor-pointer
-                  `}>
-                    {day}
-                  </div>
-                  {hasFestival && (
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+                return (
+                  <div
+                    key={day}
+                    className="aspect-square p-1 relative"
+                  >
+                    <div className={`
+                      w-10 h-10 flex items-center justify-center rounded-full text-sm
+                      ${hasFestival 
+                        ? 'bg-yellow-400 text-[#165263] font-medium shadow-md' 
+                        : 'text-[#165263] hover:bg-gray-100'}
+                      transition-all cursor-pointer
+                    `}>
+                      {day}
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    {hasFestival && (
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -222,10 +222,10 @@ const Festivals = () => {
         <div className="mt-8 grid gap-4">
           {festivals
             .filter(festival => {
-              const dateParts = festival.date.match(/(\d+)(?:st|nd|rd|th) of (\w+)/);
+              const dateParts = festival.date.match(/(\d{2})-(\d{2})/);
               if (!dateParts) return false;
               
-              const festivalDate = new Date(`${dateParts[2]} ${dateParts[1]}, ${currentDate.getFullYear()}`);
+              const festivalDate = new Date(`${currentDate.getFullYear()}-${dateParts[2]}-${dateParts[1]}`);
               return (
                 festivalDate.getMonth() === currentDate.getMonth() &&
                 festivalDate.getFullYear() === currentDate.getFullYear()
@@ -240,7 +240,7 @@ const Festivals = () => {
                 <div className="flex gap-4">
                   <div className="w-20 h-20 rounded-xl overflow-hidden shadow-md">
                     <img
-                      src={festival.image || 'https://arunachal.upstateagro.com/logo_ap.png'}
+                      src={festival.image || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
                       alt={festival.name}
                       className="w-full h-full object-cover"
                     />
@@ -269,4 +269,4 @@ const Festivals = () => {
   );
 };
 
-export default Festivals
+export default Festivals;

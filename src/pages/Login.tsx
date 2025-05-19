@@ -24,7 +24,7 @@ const Login = () => {
   
     try {
       // If using Vite proxy, use relative URL; otherwise, keep full URL
-      const apiUrl = 'https://arabhaya2.bidabhadohi.com/api/auth/login'; // Adjust to 'https://arunachal.upstateagro.com/api/auth/login' if no proxy
+      const apiUrl = 'https://arabhaya2.bidabhadohi.com/api/auth/login'; // Adjust to 'https://arabhaya2.bidabhadohi.com/api/auth/login' if no proxy
       console.log('Sending request to:', apiUrl);
   
       const response = await fetch(apiUrl, {
@@ -111,7 +111,7 @@ const Login = () => {
           {/* Logo and Header */}
           <div className="text-center">
             <img 
-              src="https://arunachal.upstateagro.com/logo_ap.png" 
+              src="https://arabhaya2.bidabhadohi.com/logo_ap.png" 
               alt="Logo" 
               className="h-16 mx-auto mb-6" 
             />

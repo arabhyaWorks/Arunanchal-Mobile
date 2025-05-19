@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Video, Music, User, Calendar } from 'lucide-react';
+import { Home, Video, Music, User, Calendar, MountainSnow } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { TranslatableText } from '../components/TranslatableText';
 
@@ -19,6 +19,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Home size={24} />
             <span className="text-xs mt-1"><TranslatableText text="Home" /></span>
           </Link>
+          <Link to="/tribes" className={`flex flex-col items-center ${isActive('/tribes') ? 'text-[#165263]' : 'text-gray-500'}`}>
+            <MountainSnow size={24} />
+            <span className="text-xs mt-1"><TranslatableText text="Tribes" /></span>
+          </Link>
           <Link to="/festivals" className={`flex flex-col items-center ${isActive('/festivals') ? 'text-[#165263]' : 'text-gray-500'}`}>
             <Calendar size={24} />
             <span className="text-xs mt-1"><TranslatableText text="Festivals" /></span>
@@ -26,10 +30,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <Link to="/videos" className={`flex flex-col items-center ${isActive('/videos') ? 'text-[#165263]' : 'text-gray-500'}`}>
             <Video size={24} />
             <span className="text-xs mt-1"><TranslatableText text="Videos" /></span>
-          </Link>
-          <Link to="/music" className={`flex flex-col items-center ${isActive('/music') ? 'text-[#165263]' : 'text-gray-500'}`}>
-            <Music size={24} />
-            <span className="text-xs mt-1"><TranslatableText text="Music" /></span>
           </Link>
           <Link to="/profile" className={`flex flex-col items-center ${isActive('/profile') ? 'text-[#165263]' : 'text-gray-500'}`}>
             <User size={24} />

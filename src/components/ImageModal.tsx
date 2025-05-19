@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import { TranslatableText } from './TranslatableText';
 
 interface ImageModalProps {
@@ -55,11 +56,21 @@ const ImageModal: React.FC<ImageModalProps> = ({
       {/* Image container */}
       <div className="h-full flex flex-col items-center justify-center p-4">
         <div className="relative max-w-5xl w-full">
-          <img
-            src={currentImage.file_path}
-            alt={currentImage.title}
-            className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-          />
+          <TransformWrapper
+            initialScale={1}
+            minScale={0.5}
+            maxScale={3}
+            wheel={{ step: 0.1 }}
+            pinch={{ step: 0.1 }}
+          >
+            <TransformComponent>
+              <img
+                src={currentImage.file_path}
+                alt={currentImage.title}
+                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+              />
+            </TransformComponent>
+          </TransformWrapper>
           
           {/* Image info */}
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-b-lg">
