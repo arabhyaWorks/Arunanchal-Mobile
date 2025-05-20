@@ -25,6 +25,7 @@ import ScrollToTop from './components/ScrollToTop';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import UploadItemCreation from './pages/upload/uploadItemCreation';
 import ContentApproval from './pages/upload/ContentApproval';
+import SignUp from './pages/signup';
 
 interface ApiResponse {
   data: {
@@ -172,6 +173,7 @@ function App() {
             <Route path="/liked-content" element={<LikedContent />} />
             <Route path="/cuisine/:id" element={<CuisineDetail />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/festival/:id" element={<FestivalDetails festivals={festivals} />} />
             <Route path="/upload/3" element={<FolkMusicUpload />} />
             <Route path="/my-content" element={<ContentStatus />} />
