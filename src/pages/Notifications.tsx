@@ -47,7 +47,7 @@ const Notifications = () => {
 
       try {
         setLoading(true);
-        const response = await fetch(`https://arabhaya2.bidabhadohi.com/api/notification/get?user_id=${user?.id}`);
+        const response = await fetch(`https://arunachal.upstateagro.com/api/notification/get?user_id=${user?.id}`);
         const data = await response.json();
         if (data.success) {
           setNotifications(data.data);

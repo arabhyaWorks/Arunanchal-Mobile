@@ -22,7 +22,7 @@ const Festivals = () => {
   useEffect(() => {
     const fetchFestivals = async () => {
       try {
-        const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items?category_id=1');
+        const response = await fetch('https://arunachal.upstateagro.com/api/category/items?category_id=1');
         const data = await response.json();
         if (data?.data) {
           const transformedFestivals = data.data.map((festival: any) => {
@@ -240,7 +240,7 @@ const Festivals = () => {
                 <div className="flex gap-4">
                   <div className="w-20 h-20 rounded-xl overflow-hidden shadow-md">
                     <img
-                      src={festival.image || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
+                      src={festival.image || 'https://arunachal.upstateagro.com/logo_ap.png'}
                       alt={festival.name}
                       className="w-full h-full object-cover"
                     />

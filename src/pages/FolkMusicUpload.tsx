@@ -74,7 +74,7 @@ const FolkMusicUpload = () => {
 
     const fetchTribes = async () => {
       try {
-        const response = await fetch('https://arabhaya2.bidabhadohi.com/api/tribe');
+        const response = await fetch('https://arunachal.upstateagro.com/api/tribe');
         const data = await response.json();
         if (data.success) {
           setTribes(data.data);
@@ -129,7 +129,7 @@ const FolkMusicUpload = () => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/upload', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/upload', {
         method: 'POST',
         body: formData
       });
@@ -285,7 +285,7 @@ const FolkMusicUpload = () => {
 
     setIsUploading(true);
     try {
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/category/items', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

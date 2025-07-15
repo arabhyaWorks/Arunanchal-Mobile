@@ -30,7 +30,7 @@ const FolkTaleDetail = () => {
   useEffect(() => {
     const fetchTale = async () => {
       try {
-        let url = `https://arabhaya2.bidabhadohi.com/api/category/items?category_id=4&item_id=${id}`;
+        let url = `https://arunachal.upstateagro.com/api/category/items?category_id=4&item_id=${id}`;
         if (user?.id) url += `&user_id=${user.id}`;
         
         const response = await fetch(url);
@@ -60,7 +60,7 @@ const FolkTaleDetail = () => {
     }
 
     try {
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/likes', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/likes', {
         method: isLiked ? 'DELETE' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ category_item_id: id, user_id: user.id }),
@@ -122,7 +122,7 @@ const FolkTaleDetail = () => {
     )?.attribute_value?.value;
   };
 
-  const heroImage = getAttributeValue('cat-FolkTales-ThumbnailImage') || 'https://arabhaya2.bidabhadohi.com/logo_ap.png';
+  const heroImage = getAttributeValue('cat-FolkTales-ThumbnailImage') || 'https://arunachal.upstateagro.com/logo_ap.png';
   const story = getAttributeValue('cat-FolkTales-Story') || 'No story content available.';
   const moral = getAttributeValue('cat-FolkTales-Moral') || 'No moral specified.';
   const characters = getAttributeValue('cat-FolkTales-CharactersInvolved') || [];

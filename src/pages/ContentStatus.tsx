@@ -63,7 +63,7 @@ const ContentStatus = () => {
     const fetchContent = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`https://arabhaya2.bidabhadohi.com/api/category/items/active?user_id=${user.id}`);
+        const response = await fetch(`https://arunachal.upstateagro.com/api/category/items/active?user_id=${user.id}`);
         const data = await response.json();
         
         if (data.success) {
@@ -229,7 +229,7 @@ const ContentStatus = () => {
                 {/* Thumbnail */}
                 <div className="relative aspect-video">
                   <img 
-                    src={item.thumbnail || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'} 
+                    src={item.thumbnail || 'https://arunachal.upstateagro.com/logo_ap.png'} 
                     alt={item.title} 
                     className="w-full h-full object-cover"
                   />

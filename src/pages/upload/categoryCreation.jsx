@@ -59,7 +59,7 @@ const CreateCategoryItem = ({ categoryId, onSuccessRoute }) => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/category");
+      const response = await fetch("https://arunachal.upstateagro.com/api/category");
       const data = await response.json();
       if (data.success) setCategories(data.data);
     } catch (error) {
@@ -69,7 +69,7 @@ const CreateCategoryItem = ({ categoryId, onSuccessRoute }) => {
 
   const fetchAttributeTypes = async () => {
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/attributeTypes");
+      const response = await fetch("https://arunachal.upstateagro.com/api/attributeTypes");
       const data = await response.json();
       setAttributeTypes(data.data);
     } catch (error) {
@@ -78,7 +78,7 @@ const CreateCategoryItem = ({ categoryId, onSuccessRoute }) => {
   };
 
   const fetchCategoryAttributes = async (categoryId) => {
-    const query = `https://arabhaya2.bidabhadohi.com/api/category/attributes?category_id=${categoryId}`;
+    const query = `https://arunachal.upstateagro.com/api/category/attributes?category_id=${categoryId}`;
     try {
       const response = await fetch(query);
       const data = await response.json();
@@ -95,7 +95,7 @@ const CreateCategoryItem = ({ categoryId, onSuccessRoute }) => {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/category", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/category", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -123,7 +123,7 @@ const CreateCategoryItem = ({ categoryId, onSuccessRoute }) => {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/category/attributes", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/category/attributes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -279,7 +279,7 @@ const CreateCategoryItem = ({ categoryId, onSuccessRoute }) => {
     // console.log(payload)
 
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/category/items", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/category/items", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

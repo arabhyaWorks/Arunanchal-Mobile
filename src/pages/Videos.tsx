@@ -31,7 +31,7 @@ const Videos = () => {
     const fetchVideos = async () => {
       try {
         const response = await fetch(
-          'https://arabhaya2.bidabhadohi.com/api/category/items?category_id=2'
+          'https://arunachal.upstateagro.com/api/category/items?category_id=2'
         );
         const data = await response.json();
         console.log('Fetched video data:', data);
@@ -53,7 +53,7 @@ const Videos = () => {
                 item.attributes?.find(
                   (attr: any) => attr.attribute_name === 'cat-FolkDance-Tribe'
                 )?.attribute_value?.value?.[0]?.name || 'Unknown Tribe',
-              thumbnail: 'https://arabhaya2.bidabhadohi.com/logo_ap.png',
+              thumbnail: 'https://arunachal.upstateagro.com/logo_ap.png',
             },
           }));
 

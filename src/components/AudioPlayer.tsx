@@ -36,7 +36,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ song, onClose, isMinimized, o
         artist: song.tribe?.name || 'Unknown Artist',
         artwork: [
           {
-            src: song.thumbnail_path || 'https://arabhaya2.bidabhadohi.com/logo_ap.png',
+            src: song.thumbnail_path || 'https://arunachal.upstateagro.com/logo_ap.png',
             sizes: '512x512',
             type: 'image/jpeg'
           }

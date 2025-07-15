@@ -46,7 +46,7 @@ export default function ContentApproval() {
 
     const fetchContentItems = async () => {
 
-      const uri = `https://arabhaya2.bidabhadohi.com/api/content-approval/?user_id=${userId}`;
+      const uri = `https://arunachal.upstateagro.com/api/content-approval/?user_id=${userId}`;
       console.log("Fetching content items from:", uri);
       try {
         setLoading(true);

@@ -84,7 +84,7 @@ export default function SignUp() {
 
       console.log("Sending registration payload:", payload);
 
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/auth/register", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -138,7 +138,7 @@ export default function SignUp() {
 
       console.log("Sending OTP verification payload:", payload);
 
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/auth/verify-email", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/auth/verify-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -209,7 +209,7 @@ export default function SignUp() {
 
       console.log("Sending security setup payload:", payload);
 
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/auth/setup-security", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/auth/setup-security", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -262,7 +262,7 @@ export default function SignUp() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch("https://arabhaya2.bidabhadohi.com/api/admin/security-questions");
+        const response = await fetch("https://arunachal.upstateagro.com/api/admin/security-questions");
         const data = await response.json();
         console.log("Security Questions API Response:", data);
 

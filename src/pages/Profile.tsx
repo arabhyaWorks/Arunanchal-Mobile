@@ -39,7 +39,7 @@ const Profile = () => {
     setLoading(true);
     setError(null);
     
-    fetch('https://arabhaya2.bidabhadohi.com/api/users/edit', {
+    fetch('https://arunachal.upstateagro.com/api/users/edit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const Profile = () => {
         <div className="text-center">
           <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <img 
-              src="https://arabhaya2.bidabhadohi.com/logo_ap.png" 
+              src="https://arunachal.upstateagro.com/logo_ap.png" 
               alt="DIA Logo" 
               className="w-16 h-16 object-contain"
             />

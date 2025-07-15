@@ -55,7 +55,7 @@ const CuisineDetail = () => {
 
     const fetchDishData = async () => {
       try {
-        const url = `https://arabhaya2.bidabhadohi.com/api/category/items?category_id=5&item_id=${id}${user?.id ? `&user_id=${user.id}` : ''}`;
+        const url = `https://arunachal.upstateagro.com/api/category/items?category_id=5&item_id=${id}${user?.id ? `&user_id=${user.id}` : ''}`;
         const response = await fetch(url);
         const data = await response.json();
 
@@ -124,7 +124,7 @@ const CuisineDetail = () => {
     }
 
     try {
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/likes', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/likes', {
         method: isLiked ? 'DELETE' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ category_item_id: id, user_id: user.id }),
@@ -153,7 +153,7 @@ const CuisineDetail = () => {
     if (!commentText.trim()) return;
 
     try {
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/comments', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -194,7 +194,7 @@ const CuisineDetail = () => {
     if (!reportReason.trim()) return;
 
     try {
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/reports', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/reports', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -271,7 +271,7 @@ const CuisineDetail = () => {
   };
 
   // Dish attributes
-  const heroImage = getAttributeValue('cat-Cuisine/Delicacies-Image') || 'https://arabhaya2.bidabhadohi.com/logo_ap.png';
+  const heroImage = getAttributeValue('cat-Cuisine/Delicacies-Image') || 'https://arunachal.upstateagro.com/logo_ap.png';
   const region = getAttributeValue('cat-Cuisine/Delicacies-RegionOrCulturalOrigin') || 'Unknown Region';
   const prepTime = getAttributeValue('cat-Cuisine/Delicacies-TimeForPreparation') || 'Unknown';
   const ingredients = getAttributeValue('cat-Cuisine/Delicacies-Ingredients') || [];

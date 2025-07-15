@@ -39,7 +39,7 @@ const LikedContent = () => {
     const fetchFavorites = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`https://arabhaya2.bidabhadohi.com/api/users/favorites?user_id=${user.id}`);
+        const response = await fetch(`https://arunachal.upstateagro.com/api/users/favorites?user_id=${user.id}`);
         const data = await response.json();
         if (data.success) {
           setFollowedTribes(data.data.followed_tribes || []);
@@ -90,7 +90,7 @@ const LikedContent = () => {
 
     try {
       if (content.type === 'tribe') {
-        const response = await fetch('https://arabhaya2.bidabhadohi.com/api/tribe/follow', {
+        const response = await fetch('https://arunachal.upstateagro.com/api/tribe/follow', {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ tribe_id: content.id, user_id: user.id }),
@@ -99,7 +99,7 @@ const LikedContent = () => {
           setFollowedTribes(prev => prev.filter((tribe: any) => tribe.tribe_id !== content.id));
         }
       } else {
-        const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/like', {
+        const response = await fetch('https://arunachal.upstateagro.com/api/category/items/like', {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ item_id: content.id, user_id: user.id }),
@@ -181,7 +181,7 @@ const LikedContent = () => {
             >
               <div className="relative aspect-video">
                 <img
-                  src={item.thumbnail || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
+                  src={item.thumbnail || 'https://arunachal.upstateagro.com/logo_ap.png'}
                   alt={item.title}
                   className="w-full h-full object-cover"
                 />

@@ -83,7 +83,7 @@ function App() {
   const [festivals, setFestivals] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('https://arabhaya2.bidabhadohi.com/api')
+    fetch('https://arunachal.upstateagro.com/api')
       .then(response => response.json())
       .then((result: ApiResponse) => {
         console.log('API Response:', result);
@@ -92,7 +92,7 @@ function App() {
         }
         setData(result.data);
         // Fetch festivals data
-        fetch('https://arabhaya2.bidabhadohi.com/api/category/items?category_id=1')
+        fetch('https://arunachal.upstateagro.com/api/category/items?category_id=1')
           .then(response => response.json())
           .then(festivalData => {
             if (festivalData?.data) {

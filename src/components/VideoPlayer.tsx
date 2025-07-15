@@ -49,7 +49,7 @@ const VideoPlayer = ({ videos }: VideoPlayerProps) => {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        let url = `https://arabhaya2.bidabhadohi.com/api/category/items?category_id=2&item_id=${id}`;
+        let url = `https://arunachal.upstateagro.com/api/category/items?category_id=2&item_id=${id}`;
         if (user?.id) url += `&user_id=${user.id}`;
 
         const response = await fetch(url);
@@ -73,7 +73,7 @@ const VideoPlayer = ({ videos }: VideoPlayerProps) => {
                 name: foundVideo.attributes?.find(
                   (attr: any) => attr.attribute_name === 'cat-FolkDance-Tribe'
                 )?.attribute_value?.value?.[0]?.name || 'Unknown Tribe',
-                thumbnail: 'https://arabhaya2.bidabhadohi.com/logo_ap.png'
+                thumbnail: 'https://arunachal.upstateagro.com/logo_ap.png'
               }
             };
             setVideo(videoData);
@@ -119,7 +119,7 @@ const VideoPlayer = ({ videos }: VideoPlayerProps) => {
 
     const method = isLiked ? 'DELETE' : 'POST';
     try {
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/likes', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/likes', {
         method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ category_item_id: id, user_id: user.id }),
@@ -148,7 +148,7 @@ const VideoPlayer = ({ videos }: VideoPlayerProps) => {
     if (!newComment.trim()) return;
 
     try {
-      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/comments', {
+      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -413,7 +413,7 @@ const VideoPlayer = ({ videos }: VideoPlayerProps) => {
             >
               <div className="w-40 aspect-video rounded-xl overflow-hidden shadow-sm">
                 <img
-                  src={recVideo.thumbnail_path || 'https://arabhaya2.bidabhadohi.com/logo_ap.png'}
+                  src={recVideo.thumbnail_path || 'https://arunachal.upstateagro.com/logo_ap.png'}
                   alt={recVideo.name} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -491,7 +491,7 @@ const VideoPlayer = ({ videos }: VideoPlayerProps) => {
                     if (!reportReason.trim()) return;
 
                     try {
-                      const response = await fetch('https://arabhaya2.bidabhadohi.com/api/category/items/reports', {
+                      const response = await fetch('https://arunachal.upstateagro.com/api/category/items/reports', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({

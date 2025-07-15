@@ -40,7 +40,7 @@ export const VideoInput = ({ value = {}, setValue, attribute }) => {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/upload", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/upload", {
         method: "POST",
         body: formData,
       });
@@ -58,7 +58,7 @@ export const VideoInput = ({ value = {}, setValue, attribute }) => {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/upload", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/upload", {
         method: "POST",
         body: formData,
       });
@@ -271,7 +271,7 @@ export const AudioInput = ({ value = {}, setValue, attribute }) => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/upload", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/upload", {
         method: "POST",
         body: formData,
       });
@@ -290,7 +290,7 @@ export const AudioInput = ({ value = {}, setValue, attribute }) => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/upload", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/upload", {
         method: "POST",
         body: formData,
       });
@@ -723,7 +723,7 @@ export const TribeInput = ({ value = {}, setValue }) => {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
 
   useEffect(() => {
-    fetch("https://arabhaya2.bidabhadohi.com/api/tribe/get-tribes")
+    fetch("https://arunachal.upstateagro.com/api/tribe/get-tribes")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) setTribes(data.data);
@@ -864,7 +864,7 @@ const ThumbnailImageInput = ({ value = "", setValue }) => {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await fetch("https://arabhaya2.bidabhadohi.com/api/upload", {
+      const response = await fetch("https://arunachal.upstateagro.com/api/upload", {
         method: "POST",
         body: formData,
       });
