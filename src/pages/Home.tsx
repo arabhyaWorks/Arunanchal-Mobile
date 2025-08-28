@@ -8,6 +8,7 @@ import MusicCard from '../components/MusicCard';
 import CuisineCard from '../components/CuisineCard';
 import AudioPlayer from '../components/AudioPlayer';
 import Bannerimg from '../components/Banner 6_v5.jpg'
+import Aboutimg from '../components/aboutimg.jpg'
 import { TranslatableText } from '../components/TranslatableText';
 import AboutDepartment from '../components/AboutDepartment';
 
@@ -149,7 +150,7 @@ const Home = ({ data }: HomeProps) => {
             <div className="flex flex-col lg:flex-row items-center gap-6">
               <div className="flex-shrink-0">
                 <img
-                  src="https://indigenous.arunachal.gov.in/images/517104185_1151998350283342_3734064986980923111_n.jpg"
+                  src={Aboutimg}
                   alt="Department of Indigenous Affairs"
                   className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg"
                 />

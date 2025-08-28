@@ -10,6 +10,8 @@ import {
   Play,
   PartyPopper,
 } from "lucide-react";
+import Aboutimg from '../components/aboutimg.jpg'
+
 
 interface AboutDepartmentProps {
   onBack?: () => void;
@@ -133,7 +135,7 @@ const AboutDepartmentScreen = ({ onBack }: AboutDepartmentProps) => {
       {/* Hero Banner with Image and Navigation */}
       <div className="relative h-48 sm:h-64 md:h-80 overflow-hidden">
         <img
-          src="https://www.indigenous.arunachal.gov.in/images/517104185_1151998350283342_3734064986980923111_n.jpg"
+          src={Aboutimg}
           alt="Department Banner"
           className="w-full h-full object-cover"
         />
