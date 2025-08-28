@@ -26,6 +26,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import UploadItemCreation from './pages/upload/uploadItemCreation';
 import ContentApproval from './pages/upload/ContentApproval';
 import SignUp from './pages/signup';
+import AboutDepartment from './components/AboutDepartment';
 
 interface ApiResponse {
   data: {
@@ -184,6 +185,7 @@ function App() {
 
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/about-department" element={<AboutDepartment />} />
           </Routes>
         </Layout>
       </Router>

@@ -17,6 +17,9 @@
     "react-cropper": "^2.3.3",
     "react-dom": "^18.3.1",
     "react-loading-skeleton": "^3.4.0",
+    "react-native": "^0.81.1",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-vector-icons": "^10.3.0",
     "react-player": "^2.16.0",
     "react-router-dom": "^6.22.3",
     "react-zoom-pan-pinch": "^3.7.0"
@@ -35,6 +38,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2"
+    "vite": "^7.1.3"
   }
 }
